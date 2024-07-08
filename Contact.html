@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <title>My Collection</title>
+    <script src="https://unpkg.com/vue@2.6.11"></script>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/style1.css">
+</head>
+<body style="background-color:rgb(169, 206, 231);">
+    <header>
+        <div class="main">
+            <div class="logo">
+                
+              <ul>
+                <li><a href="Home.html">Home</a></li>
+                <li><a href="Issues.html">Issues</a></li>
+                <li><a href="Precautions.html">Precautions</a></li>
+                <li><a href="3-R's.html">3-R's Principle</a></li>
+                <li class="active"><a href="Contact.html">Contact</a></li>
+            </ul>
+        </div>
+        
+        <div>
+          <img src="roses.jpg" style="width:38%; height:95%; top:14%; left:10%; float:left; position:fixed;">
+        </div>
+        
+        <div id="app" style="width:60%; height:100%; top:27.5%; left:40%; position:sticky;">
+
+            <form class="vue-form" @submit.prevent="submit">
+          
+              
+  
+              <fieldset>
+                <legend ></legend>
+                <h1 font-color="black">Contact Us</h1>
+                <div>
+                  <label class="label" for="name">Name</label>
+                  <input type="text" name="name" id="name" required="" v-model="name">
+                </div>
+                <div>
+                  <label class="label" for="email">Email</label>
+                  <input type="email" name="email" id="email" required=""
+                         :class="{ email , error: !email.valid }"
+                         v-model="email.value">
+                </div>
+                <div>
+                  <label>How satisfied are you with the overall experience on our website?</label>
+                  <p class="select">
+                    <select class="budget" v-model="selection.member">
+                                  <option value="0">Satisfied</option>
+                                  <option value="1">Not satisfied</option>
+                              </select>
+                  </p>
+                </div>
+          
+                <div>
+                  
+          
+                  <ul class="vue-form-list">
+                    <li>
+                      <input type="radio" name="radio-1" id="radio-1" value="angular" 
+                             v-model="selection.framework">
+                      <label for="radio-1">Yes</label>
+                    </li>
+                    <li>
+                      <input type="radio" name="radio-2" id="radio-2" value="react" 
+                             v-model="selection.framework">
+                      <label for="radio-2">No</label>
+                    </li>
+                    
+                  </ul>
+                </div>
+          
+                <div>
+                  <label>Did you find what you were looking for?</label>
+                  
+                </div>
+                <div>
+                  <label class="label" for="textarea">Feedback</label>
+                  <textarea class="message" name="textarea" id="textarea" required="" 
+                            v-model="message.text" 
+                            :maxlength="message.maxlength"></textarea>
+                  <span class="counter">{{ message.text.length }} / {{ message.maxlength }}</span>
+                </div>
+                <div>
+                  <input type="submit" value="Send Form">
+                </div>
+              </fieldset>
+            </form>
+          
+           
+          </div>
+          
+    </header>
+    <script type="text/javascript" src="contact.js"></script>
+</body>
+
+</html>
